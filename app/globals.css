@@ -23,6 +23,26 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  cursor: none; /* hide default cursor */
+}
+
+/* Custom Cursor */
+#cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #3b82f6;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, background 0.3s ease;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+#cursor.active {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: #3b82f6;
 }
 
 /* Custom animations */
