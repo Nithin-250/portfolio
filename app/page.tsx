@@ -193,19 +193,15 @@ export default function Portfolio() {
           <div className="absolute top-40 right-20 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000" />
           <div className="absolute bottom-20 left-40 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000" />
         </div>
-
-        <div className="container mx-auto px-6 text-center relative z-10 min-h-screen flex flex-col justify-center">
-         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-         >
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4">
-         Hi, I&apos;m{' '}
-         <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
-         Nithin S
-         </span>
-         </h1>
+     <div className="container mx-auto px-6 text-center relative z-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              Hi, I&apos;m{' '}
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
+                Nithin S
+              </span>
+            </h1>
+        
     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600">
       Aspiring Developer | Tech Enthusiast
     </p>
