@@ -250,7 +250,6 @@ export default function Portfolio() {
                 <Mail size={24} />
               </a>
             </div>
-          </motion.div>
         </div>
       </section>
 
