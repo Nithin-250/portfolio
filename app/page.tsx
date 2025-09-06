@@ -166,9 +166,13 @@ export default function Portfolio() {
               Computer Science Student at VIT Chennai | Passionate Full-Stack Developer | AI Enthusiast
             </p>
             <p className="text-lg text-gray-500 dark:text-gray-400 mb-12">
-              Building innovative web solutions and exploring the intersection of technology and accessibility
-              Tagline-"Designing for Impact, Building with Purpose"
-            </p>
+             Building innovative web solutions and exploring the intersection of technology and accessibility
+             <br />
+            <span className="block text-xl font-semibold text-gray-700 dark:text-gray-300 mt-2">
+             “Designing for Impact, Building with Purpose”
+             </span>
+             </p>
+
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <button
