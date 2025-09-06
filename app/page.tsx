@@ -13,6 +13,7 @@ export default function Portfolio() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [cursorHover, setCursorHover] = useState(false);
 
+  // Theme load
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -20,6 +21,7 @@ export default function Portfolio() {
     }
   }, []);
 
+  // Theme toggle
   useEffect(() => {
     localStorage.setItem('theme', darkMode ? 'dark' : 'light');
     if (darkMode) {
@@ -29,6 +31,7 @@ export default function Portfolio() {
     }
   }, [darkMode]);
 
+  // Cursor effect
   useEffect(() => {
     const moveCursor = (e: MouseEvent) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
@@ -98,38 +101,42 @@ export default function Portfolio() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''} bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none`}>
+    <div
+      className={`min-h-screen transition-colors duration-300 ${
+        darkMode ? 'dark' : ''
+      } bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none`}
+    >
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
-        {/* ... your existing nav code ... */}
+        {/* your nav content */}
       </nav>
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* ... your existing hero code ... */}
+        {/* your hero content */}
       </section>
 
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800">
-        {/* ... your existing about code ... */}
+        {/* your about content */}
       </section>
 
       {/* Projects Section */}
       <section id="projects" className="py-20">
-        {/* ... your existing projects code ... */}
+        {/* your projects content */}
       </section>
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
-        {/* ... your existing contact code ... */}
+        {/* your contact content */}
       </section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
-        {/* ... your existing footer code ... */}
+        {/* your footer content */}
       </footer>
 
-      {/* Custom Cursor */}
+      {/* ✅ Custom Cursor */}
       <div className="fixed top-0 left-0 pointer-events-none z-[9999]">
         {/* Glow Ring on hover */}
         {cursorHover && (
@@ -140,7 +147,7 @@ export default function Portfolio() {
               x: cursorPos.x - 30,
               y: cursorPos.y - 30,
               opacity: 1,
-              scale: [1, 1.2, 1], // pulsing effect
+              scale: [1, 1.2, 1],
             }}
             transition={{
               repeat: Infinity,
