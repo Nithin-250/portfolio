@@ -54,8 +54,8 @@ export default function Portfolio() {
       image: "/api/placeholder/400/250"
     },
     {
-      title: "React Portfolio Application",
-      description: "Interactive React application showcasing modern web development practices with responsive design and smooth user interactions.",
+      title: "React Talkify Application",
+      description: "Interactive Website URL to audio Podcast convertor in an attempt to help visually impaired people.",
       tech: ["React", "JavaScript", "CSS3", "Responsive Design"],
       liveUrl: "https://rman-6.vercel.app/",
       image: "/api/placeholder/400/250"
@@ -169,7 +169,7 @@ export default function Portfolio() {
              Building innovative web solutions and exploring the intersection of technology and accessibility
              <br />
             <span className="block text-xl font-semibold text-gray-700 dark:text-gray-300 mt-2">
-             “Designing for Impact, Building with Purpose”
+             Tagline- “Designing for Impact, Building with Purpose”
              </span>
              </p>
 
