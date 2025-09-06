@@ -548,19 +548,22 @@ export default function Portfolio() {
           />
         )}
 
-        {/* Main cursor dot */}
-        <motion.div
-          animate={{
-            x: cursorPos.x - (cursorHover ? 20 : 12),
-            y: cursorPos.y - (cursorHover ? 20 : 12),
-          }}
-          transition={{ type: 'spring', stiffness: 500, damping: 35 }}
-          className={`absolute rounded-full shadow-lg ${
-            cursorHover ? (darkMode ? 'w-10 h-10 bg-purple-400/85' : 'w-10 h-10 bg-purple-500/85') : 'w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500'
-          }`}
-        />
-      </div>
-    
-    
-  );
-} 
+       {/* Main cursor dot */}
+<motion.div
+  animate={{
+    x: cursorPos.x - (cursorHover ? 20 : 12),
+    y: cursorPos.y - (cursorHover ? 20 : 12),
+  }}
+  transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+  className={`absolute rounded-full shadow-lg ${
+    cursorHover
+      ? darkMode
+        ? 'w-10 h-10 bg-purple-400/85'
+        : 'w-10 h-10 bg-purple-500/85'
+      : 'w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500'
+  }`}
+/>
+  </div> // closes the main page wrapper
+);
+} // closes the component function
+
