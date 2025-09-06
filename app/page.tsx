@@ -167,6 +167,7 @@ export default function Portfolio() {
             </p>
             <p className="text-lg text-gray-500 dark:text-gray-400 mb-12">
               Building innovative web solutions and exploring the intersection of technology and accessibility
+              Tagline-"Designing for Impact, Building with Purpose"
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
