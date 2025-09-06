@@ -61,12 +61,10 @@ Once deployed, you can add a custom domain:
 
 ### Build Settings
 
-The `vercel.json` configuration is already included with optimized settings:
-- Framework: Next.js
-- Node.js runtime: 18.x
-- Build command: `npm run build`
-- Output directory: `.next`
+The `vercel.json` configuration is minimal and optimized:
 - Region: Mumbai (bom1) for optimal performance in India
+- Vercel will auto-detect Next.js settings
+- No additional configuration needed
 
 ## Performance Optimizations Included
 
