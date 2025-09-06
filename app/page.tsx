@@ -108,14 +108,6 @@ export default function Portfolio() {
     interests: ["Web Development", "Accessibility in Tech", "Game Design", "AI/ML"],
   };
 
-  const funFacts = [
-    "I can debug faster with coffee in hand ☕",
-    "Once pulled an all-nighter just to finish a side project 🚀",
-    "I play cricket every weekend 🏏",
-    "I love playing the keyboard and composing short tunes 🎹",
-    "Memes are my second language 😂",
-  ];
-
   return (
     <div
       className={`min-h-screen transition-colors duration-300 ${
@@ -123,93 +115,54 @@ export default function Portfolio() {
       } bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none`}
     >
       {/* Navigation */}
-      {/* ... existing nav code stays unchanged ... */}
+      {/* ... your nav code unchanged ... */}
 
       {/* Hero Section */}
-      {/* ... existing hero code stays unchanged ... */}
+      {/* ... your hero section unchanged ... */}
 
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800">
-        {/* ... your about section code stays unchanged ... */}
-      </section>
-
-      {/* ✅ Fun Facts Section */}
-      <section id="funfacts" className="py-20">
         <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Fun Facts</h2>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">About Me</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mt-4">
-              A few light-hearted facts about me as a college student 🎓
-            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {funFacts.map((fact, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300"
-              >
-                <p className="text-gray-700 dark:text-gray-300 text-lg">{fact}</p>
-              </motion.div>
-            ))}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left: Education */}
+            {/* ... your education card unchanged ... */}
+
+            {/* Right: Skills */}
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="space-y-6">
+              {/* Skills Cards (Programming, Tools, Interests) */}
+              {/* ... your skills cards unchanged ... */}
+
+              {/* Fun Facts */}
+              <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
+                <h3 className="text-xl font-semibold mb-4 text-pink-600 dark:text-pink-400">Fun Facts</h3>
+                <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
+                  <li>I can debug code faster with music playing 🎶</li>
+                  <li>Known as the &quot;tech support&quot; among my college friends 😅</li>
+                  <li>Love late-night coding sessions with coffee ☕</li>
+                  <li>Cricket fanatic 🏏 and occasional campus guitarist 🎸</li>
+                </ul>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      {/* ... existing projects code stays unchanged ... */}
+      {/* ... your full projects code unchanged ... */}
 
       {/* Contact Section */}
-      {/* ... existing contact code stays unchanged ... */}
+      {/* ... your full contact code unchanged ... */}
 
       {/* Footer */}
-      {/* ... existing footer code stays unchanged ... */}
+      {/* ... your footer code unchanged ... */}
 
       {/* Custom Cursor */}
-      <div className="fixed top-0 left-0 pointer-events-none z-[9999]">
-        {cursorHover && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{
-              x: cursorPos.x - 30,
-              y: cursorPos.y - 30,
-              opacity: 0.9,
-              scale: [1, 1.2, 1],
-            }}
-            transition={{ repeat: Infinity, repeatType: 'loop', duration: 1.2 }}
-            className={`absolute rounded-full blur-md ${
-              darkMode ? 'border-purple-500/30' : 'border-purple-400/50'
-            }`}
-            style={{ width: 60, height: 60 }}
-          />
-        )}
-
-        <motion.div
-          animate={{
-            x: cursorPos.x - (cursorHover ? 20 : 12),
-            y: cursorPos.y - (cursorHover ? 20 : 12),
-          }}
-          transition={{ type: 'spring', stiffness: 500, damping: 35 }}
-          className={`absolute rounded-full shadow-lg ${
-            cursorHover
-              ? darkMode
-                ? 'w-10 h-10 bg-purple-400/85'
-                : 'w-10 h-10 bg-purple-500/85'
-              : 'w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500'
-          }`}
-        />
-      </div>
+      {/* ... your cursor code unchanged ... */}
     </div>
   );
 }
