@@ -9,8 +9,7 @@ export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  // Cursor states
-  const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 }); // start offscreen
+  const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [cursorHover, setCursorHover] = useState(false);
 
   useEffect(() => {
@@ -29,7 +28,6 @@ export default function Portfolio() {
     }
   }, [darkMode]);
 
-  // Cursor event handlers
   useEffect(() => {
     const handleMove = (e: MouseEvent) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
@@ -114,7 +112,6 @@ export default function Portfolio() {
         darkMode ? 'dark' : ''
       } bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none`}
     >
-      {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
@@ -125,7 +122,6 @@ export default function Portfolio() {
             >
               Nithin S
             </motion.div>
-
             <div className="hidden md:flex items-center space-x-8">
               {['home', 'about', 'projects', 'contact'].map((section) => (
                 <button
@@ -145,7 +141,6 @@ export default function Portfolio() {
                 {darkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
             </div>
-
             <div className="md:hidden flex items-center space-x-4">
               <button
                 onClick={toggleDarkMode}
@@ -161,7 +156,6 @@ export default function Portfolio() {
               </button>
             </div>
           </div>
-
           {mobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, y: -10 }}
@@ -182,7 +176,6 @@ export default function Portfolio() {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"></div>
         <div className="absolute inset-0">
@@ -190,7 +183,6 @@ export default function Portfolio() {
           <div className="absolute top-40 right-20 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000" />
           <div className="absolute bottom-20 left-40 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000" />
         </div>
-
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
@@ -209,7 +201,6 @@ export default function Portfolio() {
                 Tagline- “Designing for Impact, Building with Purpose”
               </span>
             </p>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <button
                 onClick={() => scrollToSection('projects')}
@@ -224,7 +215,6 @@ export default function Portfolio() {
                 Get In Touch
               </button>
             </div>
-
             <div className="flex justify-center space-x-6">
               <a href="https://github.com/Nithin-250" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 <Github size={24} />
@@ -240,14 +230,12 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* About Section */}
       <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">About Me</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
           </motion.div>
-
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
               <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg">
@@ -269,7 +257,6 @@ export default function Portfolio() {
                 </div>
               </div>
             </motion.div>
-
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="space-y-6">
               <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
                 <h3 className="text-xl font-semibold mb-4 text-purple-600 dark:text-purple-400">Programming Languages</h3>
@@ -281,7 +268,6 @@ export default function Portfolio() {
                   ))}
                 </div>
               </div>
-
               <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
                 <h3 className="text-xl font-semibold mb-4 text-green-600 dark:text-green-400">Tools & Frameworks</h3>
                 <div className="flex flex-wrap gap-2">
@@ -292,7 +278,6 @@ export default function Portfolio() {
                   ))}
                 </div>
               </div>
-
               <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
                 <h3 className="text-xl font-semibold mb-4 text-orange-600 dark:text-orange-400">Interests</h3>
                 <div className="flex flex-wrap gap-2">
@@ -308,7 +293,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Fun Facts Section */}
+      {/* 🌟 Fun Facts Section */}
       <section id="fun-facts" className="py-20">
         <div className="container mx-auto px-6">
           <motion.div
@@ -320,36 +305,33 @@ export default function Portfolio() {
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Fun Facts</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-pink-500 to-yellow-500 mx-auto"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mt-4 max-w-2xl mx-auto">
-              A few quirky things about me beyond coding!
-            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {[
-              "I can play keyboard by ear – no sheet music needed 🎹",
-              "Cricket is my weekend therapy 🏏",
-              "I once ranked Top 50 globally at the World Scholar’s Cup 🌍",
-              "I collect random domain names for future projects 💡",
-              "My debugging fuel = coffee + lo-fi beats ☕🎶",
-              "I love experimenting with futuristic UI designs ✨",
+              "I can play cricket for hours but still struggle to sit through a 3-hour movie 🎬",
+              "My debugging sessions usually involve snacks as fuel 🍕",
+              "I once tried to build a robot that could fetch me water... it only spilled it everywhere 🤖💧",
+              "I listen to lo-fi beats while coding, but switch to heavy metal during bug fixes 🎶",
+              "Despite being a coder, I still sometimes forget my own passwords 🔑",
+              "I’ve broken more breadboards than I care to admit 🔌",
             ].map((fact, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all"
+                className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg text-center"
               >
-                <p className="text-lg text-gray-700 dark:text-gray-300">{fact}</p>
+                <p className="text-gray-700 dark:text-gray-300">{fact}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Projects Section */}
       <section id="projects" className="py-20">
         <div className="container mx-auto px-6">
-          <motion
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
+           
