@@ -13,6 +13,7 @@ export default function Portfolio() {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [cursorHover, setCursorHover] = useState(false);
 
+  // Load saved theme from localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -20,21 +21,27 @@ export default function Portfolio() {
     }
   }, []);
 
+  // Apply theme to <html> and save to localStorage
   useEffect(() => {
     localStorage.setItem('theme', darkMode ? 'dark' : 'light');
     if (darkMode) document.documentElement.classList.add('dark');
     else document.documentElement.classList.remove('dark');
   }, [darkMode]);
 
+  // Custom cursor tracking
   useEffect(() => {
     const handleMove = (e: MouseEvent) => setCursorPos({ x: e.clientX, y: e.clientY });
     const handlePointerOver = (e: PointerEvent) => {
       const target = e.target as HTMLElement | null;
-      if (target?.closest('a, button, input, textarea, select, [data-cursor-hover]')) setCursorHover(true);
+      if (target?.closest('a, button, input, textarea, select, [data-cursor-hover]')) {
+        setCursorHover(true);
+      }
     };
     const handlePointerOut = (e: PointerEvent) => {
       const target = e.target as HTMLElement | null;
-      if (target?.closest('a, button, input, textarea, select, [data-cursor-hover]')) setCursorHover(false);
+      if (target?.closest('a, button, input, textarea, select, [data-cursor-hover]')) {
+        setCursorHover(false);
+      }
     };
     window.addEventListener('mousemove', handleMove);
     window.addEventListener('pointerover', handlePointerOver);
@@ -57,83 +64,82 @@ export default function Portfolio() {
     }
   };
 
-  const projects = [
-    {
-      title: "AI ANALYST - Financial Intelligence Platform",
-      description:
-        "Advanced AI-powered financial analysis platform with fraud detection, real-time analytics, and market intelligence designed for Indian banking systems.",
-      tech: ["React", "TypeScript", "AI/ML", "Financial APIs"],
-      liveUrl: "https://project-mopb.vercel.app/",
-      image: "/api/placeholder/400/250",
-    },
-    {
-      title: "Weather Forecast App",
-      description:
-        "Real-time weather application providing current conditions, 5-day forecasts, and location-based weather data with a clean, responsive interface.",
-      tech: ["React", "Weather API", "CSS3", "JavaScript"],
-      liveUrl: "https://weather-pi-umber-43.vercel.app/",
-      image: "/api/placeholder/400/250",
-    },
-    {
-      title: "React Talkify Application",
-      description:
-        "Interactive Website URL to audio Podcast convertor in an attempt to help visually impaired people.",
-      tech: ["React", "JavaScript", "CSS3", "Responsive Design"],
-      liveUrl: "https://rman-6.vercel.app/",
-      image: "/api/placeholder/400/250",
-    },
-  ];
-
-  const skills = {
-    programming: ["Python", "C++", "JavaScript", "TypeScript"],
-    tools: ["Git", "VS Code", "React", "Next.js", "Node.js"],
-    interests: ["Web Development", "Accessibility in Tech", "Game Design", "AI/ML"],
-  };
-
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''} bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none`}>
+    <div
+      className={`min-h-screen transition-colors duration-300 ${
+        darkMode ? 'dark' : ''
+      } bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none`}
+    >
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Nithin S
+          {/* Logo / Name */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+          >
+            Hi, I’m Nithin S
           </motion.div>
 
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {['home', 'about', 'projects', 'contact'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''}`}
+                className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                  activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''
+                }`}
               >
                 {section}
               </button>
             ))}
-            <button onClick={toggleDarkMode} className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
           </div>
 
+          {/* Mobile Menu Buttons */}
           <div className="md:hidden flex items-center space-x-4">
-            <button onClick={toggleDarkMode} className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
 
+        {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700"
+          >
             {['home', 'about', 'projects', 'contact'].map((section) => (
-              <button key={section} onClick={() => scrollToSection(section)} className="block w-full text-left py-2 capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                className="block w-full text-left py-2 capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+              >
                 {section}
               </button>
             ))}
           </motion.div>
         )}
       </nav>
+
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
