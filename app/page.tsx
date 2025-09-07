@@ -16,8 +16,8 @@ import {
 } from 'lucide-react';
 
 export default function Portfolio() {
-  // ✅ default light mode
-  const [darkMode, setDarkMode] = useState<boolean>(false); // always false on load
+  // Default light mode
+  const [darkMode, setDarkMode] = useState<boolean>(false);
 
   // Mobile menu & active section
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,32 +35,37 @@ export default function Portfolio() {
         document.documentElement.classList.add('dark');
         setDarkMode(true);
       } else {
-        document.documentElement.classList.remove('dark'); // force light mode
-        setDarkMode(false); // Sun icon
+        document.documentElement.classList.remove('dark');
+        setDarkMode(false);
       }
     }
   }, []);
 
   // Toggle dark mode
   const toggleDarkMode = () => {
-    setDarkMode((prev) => {
-      const next = !prev;
-      if (typeof window !== 'undefined') {
-        if (next) document.documentElement.classList.add('dark');
-        else document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', next ? 'dark' : 'light');
+    if (typeof window !== 'undefined') {
+      const html = document.documentElement;
+      if (darkMode) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        setDarkMode(false);
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        setDarkMode(true);
       }
-      return next;
-    });
+    }
   };
 
   // Cursor movement & hover detection
   useEffect(() => {
     const handleMove = (e: MouseEvent) => setCursorPos({ x: e.clientX, y: e.clientY });
+
     const handlePointerOver = (e: PointerEvent) => {
       const target = e.target as HTMLElement | null;
       if (target?.closest('a, button, input, textarea, select, [data-cursor-hover]')) setCursorHover(true);
     };
+
     const handlePointerOut = (e: PointerEvent) => {
       const target = e.target as HTMLElement | null;
       if (target?.closest('a, button, input, textarea, select, [data-cursor-hover]')) setCursorHover(false);
@@ -77,6 +82,7 @@ export default function Portfolio() {
     };
   }, []);
 
+  // Scroll to section
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -85,6 +91,8 @@ export default function Portfolio() {
       setMobileMenuOpen(false);
     }
   };
+}
+
 
   // Projects
   const projects = [
@@ -120,77 +128,79 @@ export default function Portfolio() {
     interests: ["Web Development", "Accessibility in Tech", "Game Design", "AI/ML"],
   };
   return (
-  <div className="min-h-screen transition-colors duration-300 bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none">
-    {/* Navigation */}
-    <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Responsive "Hi, I’m Nithin S" */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-base sm:text-lg md:text-2xl lg:text-3xl"
+  <div className="min-h-screen transition-colors duration-300 cursor-none">
+  {/* Navigation */}
+  <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+    <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+      {/* Responsive "Hi, I’m Nithin S" */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-base sm:text-lg md:text-2xl lg:text-3xl"
+      >
+        Nithin S
+      </motion.div>
+
+      {/* Desktop menu */}
+      <div className="hidden md:flex items-center space-x-8">
+        {['home', 'about', 'projects', 'contact'].map((section) => (
+          <button
+            key={section}
+            onClick={() => scrollToSection(section)}
+            className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+              activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''
+            }`}
+          >
+            {section}
+          </button>
+        ))}
+
+        {/* Dark mode toggle */}
+        <button
+          onClick={toggleDarkMode}
+          className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
         >
-          Nithin S
-        </motion.div>
-
-        {/* Desktop menu */}
-        <div className="hidden md:flex items-center space-x-8">
-          {['home', 'about', 'projects', 'contact'].map((section) => (
-            <button
-              key={section}
-              onClick={() => scrollToSection(section)}
-              className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''}`}
-            >
-              {section}
-            </button>
-          ))}
-
-          {/* Dark mode toggle */}
-          <button
-            onClick={toggleDarkMode}
-            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-          >
-            {darkMode ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
-        </div>
-
-        {/* Mobile menu */}
-        <div className="md:hidden flex items-center space-x-4">
-          <button
-            onClick={toggleDarkMode}
-            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-          >
-            {darkMode ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
-
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-          >
-            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
+          {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
       </div>
 
-      {/* Mobile dropdown menu */}
-      {mobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700"
+      {/* Mobile menu */}
+      <div className="md:hidden flex items-center space-x-4">
+        <button
+          onClick={toggleDarkMode}
+          className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
         >
-          {['home', 'about', 'projects', 'contact'].map((section) => (
-            <button
-              key={section}
-              onClick={() => scrollToSection(section)}
-              className="block w-full text-left py-2 capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400"
-            >
-              {section}
-            </button>
-          ))}
-        </motion.div>
-      )}
-    </nav>
+          {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+        >
+          {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
+    </div>
+
+    {/* Mobile dropdown menu */}
+    {mobileMenuOpen && (
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700"
+      >
+        {['home', 'about', 'projects', 'contact'].map((section) => (
+          <button
+            key={section}
+            onClick={() => scrollToSection(section)}
+            className="block w-full text-left py-2 capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+          >
+            {section}
+          </button>
+        ))}
+      </motion.div>
+    )}
+  </nav>
 
 
 
