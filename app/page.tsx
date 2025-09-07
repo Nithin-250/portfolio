@@ -130,7 +130,7 @@ export default function Portfolio() {
   return (
   <div className="min-h-screen transition-colors duration-300 cursor-none">
     {/* Navigation */}
-    <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+    <nav className="fixed top-0 w-full bg-white/90 dark:bg-black-900/90 backdrop-blur-md z-50 border-b border-white-200 dark:border-gray-700">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Responsive "Hi, I’m Nithin S" */}
         <motion.div
@@ -158,7 +158,7 @@ export default function Portfolio() {
           {/* Dark mode toggle */}
           <button
             onClick={toggleDarkMode}
-            className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+            className="p-2 rounded-lg transition-colors hover:bg-white-200 dark:hover:bg-black-700"
           >
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
@@ -168,14 +168,14 @@ export default function Portfolio() {
         <div className="md:hidden flex items-center space-x-4">
           <button
             onClick={toggleDarkMode}
-            className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+            className="p-2 rounded-lg transition-colors hover:bg-white-200 dark:hover:bg-black-700"
           >
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+            className="p-2 rounded-lg transition-colors hover:bg-white-200 dark:hover:bg-black-700"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -187,7 +187,7 @@ export default function Portfolio() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700"
+          className="md:hidden mt-4 py-4 border-t border-white-200 dark:border-black-700"
         >
           {['home', 'about', 'projects', 'contact'].map((section) => (
             <button
@@ -223,13 +223,13 @@ export default function Portfolio() {
              </h1>
 
 
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-white-300 mb-8 max-w-3xl mx-auto">
               Computer Science Student at VIT Chennai | Passionate Full-Stack Developer | AI Enthusiast
             </p>
-            <p className="text-lg text-gray-500 dark:text-gray-400 mb-12">
+            <p className="text-lg text-gray-500 dark:text-white-400 mb-12">
               Building innovative web solutions and exploring the intersection of technology and accessibility
               <br />
-              <span className="block text-xl font-semibold text-gray-700 dark:text-gray-300 mt-2">
+              <span className="block text-xl font-semibold text-gray-700 dark:text-white-300 mt-2">
                 Tagline- “Designing for Impact, Building with Purpose”
               </span>
             </p>
@@ -250,13 +250,13 @@ export default function Portfolio() {
             </div>
 
             <div className="flex justify-center space-x-6">
-              <a href="https://github.com/Nithin-250" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <a href="https://github.com/Nithin-250" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-white-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 <Github size={24} />
               </a>
-              <a href="https://linkedin.com/in/nithin-s-63a7b3321" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <a href="https://linkedin.com/in/nithin-s-63a7b3321" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-white-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 <Linkedin size={24} />
               </a>
-              <a href="mailto:nithin.s2024@vitstudent.ac.in" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <a href="mailto:nithin.s2024@vitstudent.ac.in" className="text-gray-600 dark:text-white-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 <Mail size={24} />
               </a>
             </div>
@@ -265,7 +265,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section id="about" className="py-20 bg-white-50 dark:bg-black-800">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">About Me</h2>
@@ -279,12 +279,12 @@ export default function Portfolio() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-lg">B.Tech Computer Science (Core)</h4>
-                    <p className="text-gray-600 dark:text-gray-300">Vellore Institute of Technology, Chennai</p>
-                    <p className="text-gray-500 dark:text-gray-400">Expected Graduation: 2028 | CGPA: 9.08</p>
+                    <p className="text-gray-600 dark:text-white-300">Vellore Institute of Technology, Chennai</p>
+                    <p className="text-gray-500 dark:text-white-400">Expected Graduation: 2028 | CGPA: 9.08</p>
                   </div>
                   <div className="pt-4">
                     <h4 className="font-semibold text-lg mb-2">Achievements</h4>
-                    <ul className="text-gray-600 dark:text-gray-300 space-y-1">
+                    <ul className="text-gray-600 dark:text-white-300 space-y-1">
                       <li>• Top 50 rank at World Scholar&apos;s Cup Global Round, Yale University</li>
                       <li>• Active participant in multiple hackathons</li>
                       <li>• Cricket enthusiast and keyboard player</li>
@@ -306,8 +306,8 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
-                <h3 className="text-xl font-semibold mb-4 text-green-600 dark:text-green-400">Tools & Frameworks</h3>
+              <div className="bg-white dark:bg-black-900 p-6 rounded-2xl shadow-lg">
+                <h3 className="text-xl font-semibold mb-4 text-green-600 dark:text-white-400">Tools & Frameworks</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.tools.map((skill, index) => (
                     <span key={index} className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">
@@ -317,7 +317,7 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
+              <div className="bg-white dark:bg-black-900 p-6 rounded-2xl shadow-lg">
                 <h3 className="text-xl font-semibold mb-4 text-orange-600 dark:text-orange-400">Interests</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.interests.map((skill, index) => (
@@ -413,12 +413,12 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section id="contact" className="py-20 bg-white-50 dark:bg-black-800">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-white-300 max-w-2xl mx-auto">
               I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology.
             </p>
           </motion.div>
@@ -430,23 +430,23 @@ export default function Portfolio() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center">
-                    <Mail className="text-blue-600 dark:text-blue-400" size={20} />
+                    <Mail className="text-blue-600 dark:text-white-400" size={20} />
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
-                    <a href="mailto:nithin.s2024@vitstudent.ac.in" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <a href="mailto:nithin.s2024@vitstudent.ac.in" className="text-gray-600 dark:text-white-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                       nithin.s2024@vitstudent.ac.in
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center">
-                    <Phone className="text-green-600 dark:text-green-400" size={20} />
+                  <div className="w-12 h-12 bg-green-100 dark:bg-black-900 rounded-lg flex items-center justify-center">
+                    <Phone className="text-green-600 dark:text-white-400" size={20} />
                   </div>
                   <div>
                     <p className="font-medium">Phone</p>
-                    <a href="tel:+916374672882" className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">
+                    <a href="tel:+916374672882" className="text-gray-600 dark:text-white-300 hover:text-green-600 dark:hover:text-white-400 transition-colors">
                       +91 6374672882
                     </a>
                   </div>
@@ -454,27 +454,27 @@ export default function Portfolio() {
 
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center">
-                    <MapPin className="text-purple-600 dark:text-purple-400" size={20} />
+                    <MapPin className="text-purple-600 dark:text-white-400" size={20} />
                   </div>
                   <div>
                     <p className="font-medium">Location</p>
-                    <p className="text-gray-600 dark:text-gray-300">Chennai, India</p>
+                    <p className="text-gray-600 dark:text-white-300">Chennai, India</p>
                   </div>
                 </div>
               </div>
 
               <div className="flex space-x-4">
-                <a href="https://github.com/Nithin-250" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                <a href="https://github.com/Nithin-250" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-gray-100 dark:bg-white-700 rounded-lg flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
                   <Github size={20} />
                 </a>
-                <a href="https://linkedin.com/in/nithin-s-63a7b3321" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">
+                <a href="https://linkedin.com/in/nithin-s-63a7b3321" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-blue-100 dark:bg-white-900 rounded-lg flex items-center justify-center hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">
                   <Linkedin size={20} />
                 </a>
               </div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-              <form className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg space-y-6">
+              <form className="bg-white dark:bg-black-900 p-8 rounded-2xl shadow-lg space-y-6">
                 <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
                 <div className="grid md:grid-cols-2 gap-4">
