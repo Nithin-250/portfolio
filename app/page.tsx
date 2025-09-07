@@ -92,6 +92,8 @@ export default function Portfolio() {
     }
   };
 
+
+
   // Projects
   const projects = [
     {
@@ -125,81 +127,81 @@ export default function Portfolio() {
     tools: ["Git", "VS Code", "React", "Next.js", "Node.js"],
     interests: ["Web Development", "Accessibility in Tech", "Game Design", "AI/ML"],
   };
-
   return (
-    <div className="min-h-screen transition-colors duration-300 cursor-none">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-base sm:text-lg md:text-2xl lg:text-3xl"
+  <div className="min-h-screen transition-colors duration-300 cursor-none">
+    {/* Navigation */}
+    <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Responsive "Hi, I’m Nithin S" */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-base sm:text-lg md:text-2xl lg:text-3xl"
+        >
+          Nithin S
+        </motion.div>
+
+        {/* Desktop menu */}
+        <div className="hidden md:flex items-center space-x-8">
+          {['home', 'about', 'projects', 'contact'].map((section) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''
+              }`}
+            >
+              {section}
+            </button>
+          ))}
+
+          {/* Dark mode toggle */}
+          <button
+            onClick={toggleDarkMode}
+            className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
           >
-            Nithin S
-          </motion.div>
-
-          {/* Desktop menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
-                  activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''
-                }`}
-              >
-                {section}
-              </button>
-            ))}
-
-            {/* Dark mode toggle */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
-            >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-          </div>
-
-          {/* Mobile menu */}
-          <div className="md:hidden flex items-center space-x-4">
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
-            >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
-            >
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
         </div>
 
-        {/* Mobile dropdown */}
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700"
+        {/* Mobile menu */}
+        <div className="md:hidden flex items-center space-x-4">
+          <button
+            onClick={toggleDarkMode}
+            className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
           >
-            {['home', 'about', 'skills', 'projects', 'contact'].map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className="block w-full text-left py-2 capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400"
-              >
-                {section}
-              </button>
-            ))}
-          </motion.div>
-        )}
-      </nav>
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-lg transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+          >
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile dropdown menu */}
+      {mobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700"
+        >
+          {['home', 'about', 'projects', 'contact'].map((section) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className="block w-full text-left py-2 capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+            >
+              {section}
+            </button>
+          ))}
+        </motion.div>
+      )}
+    </nav>
+
 
 
       {/* Hero Section */}
@@ -263,61 +265,69 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="skills" className="py-20 bg-white dark:bg-gray-900">
+      <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">My Skills</h2>
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">About Me</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-10">
-            {/* Programming */}
-            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-blue-600 dark:text-blue-400">
-                Programming Languages
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {skills.programming.map((s, i) => (
-                  <span key={i} className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">
-                    {s}
-                  </span>
-                ))}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
+              <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg">
+                <h3 className="text-2xl font-semibold mb-6 text-blue-600 dark:text-blue-400">Education & Background</h3>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-lg">B.Tech Computer Science (Core)</h4>
+                    <p className="text-gray-600 dark:text-gray-300">Vellore Institute of Technology, Chennai</p>
+                    <p className="text-gray-500 dark:text-gray-400">Expected Graduation: 2028 | CGPA: 9.08</p>
+                  </div>
+                  <div className="pt-4">
+                    <h4 className="font-semibold text-lg mb-2">Achievements</h4>
+                    <ul className="text-gray-600 dark:text-gray-300 space-y-1">
+                      <li>• Top 50 rank at World Scholar&apos;s Cup Global Round, Yale University</li>
+                      <li>• Active participant in multiple hackathons</li>
+                      <li>• Cricket enthusiast and keyboard player</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Tools */}
-            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-green-600 dark:text-green-400">
-                Tools & Frameworks
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {skills.tools.map((t, i) => (
-                  <span key={i} className="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">
-                    {t}
-                  </span>
-                ))}
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="space-y-6">
+              <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
+                <h3 className="text-xl font-semibold mb-4 text-purple-600 dark:text-purple-400">Programming Languages</h3>
+                <div className="flex flex-wrap gap-2">
+                  {skills.programming.map((skill, index) => (
+                    <span key={index} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Interests */}
-            <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-semibold mb-4 text-orange-600 dark:text-orange-400">
-                Interests
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {skills.interests.map((iSkill, i) => (
-                  <span key={i} className="px-4 py-2 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded-full text-sm">
-                    {iSkill}
-                  </span>
-                ))}
+              <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
+                <h3 className="text-xl font-semibold mb-4 text-green-600 dark:text-green-400">Tools & Frameworks</h3>
+                <div className="flex flex-wrap gap-2">
+                  {skills.tools.map((skill, index) => (
+                    <span key={index} className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+
+              <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
+                <h3 className="text-xl font-semibold mb-4 text-orange-600 dark:text-orange-400">Interests</h3>
+                <div className="flex flex-wrap gap-2">
+                  {skills.interests.map((skill, index) => (
+                    <span key={index} className="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded-full text-sm">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -561,4 +571,4 @@ export default function Portfolio() {
       </div>
     </div>
   );
-}  
+}   
