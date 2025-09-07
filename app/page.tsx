@@ -15,16 +15,9 @@ import {
   ExternalLink
 } from 'lucide-react';
 
-
-
 export default function Portfolio() {
   // ✅ default light mode
-  const [darkMode, setDarkMode] = useState<boolean>(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('theme') === 'dark';
-    }
-    return false; // fallback → light
-  });
+  const [darkMode, setDarkMode] = useState(false); // Always light mode on page load
 
   // Mobile menu & active section
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,29 +27,13 @@ export default function Portfolio() {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [cursorHover, setCursorHover] = useState(false);
 
-  // Initialize theme from localStorage on mount
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-        setDarkMode(true);
-      } else {
-        document.documentElement.classList.remove('dark');
-        setDarkMode(false);
-      }
-    }
-  }, []);
-
   // Apply dark/light class whenever darkMode changes
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (darkMode) {
         document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
       } else {
         document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
       }
     }
   }, [darkMode]);
@@ -85,9 +62,7 @@ export default function Portfolio() {
   }, []);
 
   // Toggle dark mode
-  const toggleDarkMode = () => setDarkMode(prev => !prev); // ✅ Only one closing bracket here
-
-
+  const toggleDarkMode = () => setDarkMode(prev => !prev);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -130,7 +105,6 @@ export default function Portfolio() {
     tools: ["Git", "VS Code", "React", "Next.js", "Node.js"],
     interests: ["Web Development", "Accessibility in Tech", "Game Design", "AI/ML"],
   };
-
   return (
     <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''} bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none`}>
       {/* Navigation */}
