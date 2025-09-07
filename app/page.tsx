@@ -234,7 +234,7 @@ export default function Portfolio() {
                     <ul className="text-gray-600 dark:text-gray-300 space-y-1">
                       <li>• Top 50 rank at World Scholar&apos;s Cup Global Round, Yale University</li>
                       <li>• Active participant in multiple hackathons</li>
-                      <li>• SBOA School 3rd Topper in CBSE 12th Boards and Centum in Computer Science</li>
+                      <li>• SBOA School Topper in CBSE 12th Boards and Centum in Computer Science</li>
                     </ul>
                   </div>
                 </div>
