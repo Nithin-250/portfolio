@@ -128,9 +128,9 @@ export default function Portfolio() {
     interests: ["Web Development", "Accessibility in Tech", "Game Design", "AI/ML"],
   };
   return (
-  <div className={`min-h-screen transition-colors duration-300 cursor-none ${darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
+  <div className={`min-h-screen transition-colors duration-300 cursor-none ${darkMode ? 'bg-black text-white' : 'bg-white text-gray-900'}`}>
     {/* Navigation */}
-    <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+    <nav className="fixed top-0 w-full bg-white/90 dark:bg-black/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Responsive "Hi, I’m Nithin S" */}
         <motion.div
@@ -202,73 +202,70 @@ export default function Portfolio() {
       )}
     </nav>
 
-
-
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-pink-50 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"></div>
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob" />
-          <div className="absolute top-40 right-20 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000" />
-          <div className="absolute bottom-20 left-40 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000" />
-        </div>
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-pink-50 to-purple-100 dark:from-black dark:via-gray-900 dark:to-black"></div>
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob" />
+        <div className="absolute top-40 right-20 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000" />
+        <div className="absolute bottom-20 left-40 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000" />
+      </div>
 
-        <div className="container mx-auto px-4 text-center relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 relative z-10">
-             Hi, I&apos;m{' '}
-             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
-             Nithin S
-             </span>
-             </h1>
+      <div className="container mx-auto px-4 text-center relative z-10">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 relative z-10">
+           Hi, I&apos;m{' '}
+           <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
+           Nithin S
+           </span>
+          </h1>
 
+          <p className="text-xl md:text-2xl text-gray-900 dark:text-white mb-8 max-w-3xl mx-auto">
+            Computer Science Student at VIT Chennai | Passionate Full-Stack Developer | AI Enthusiast
+          </p>
+          <p className="text-lg text-gray-700 dark:text-white mb-12">
+            Building innovative web solutions and exploring the intersection of technology and accessibility
+            <br />
+            <span className="block text-xl font-semibold text-gray-800 dark:text-white mt-2">
+              Tagline- “Designing for Impact, Building with Purpose”
+            </span>
+          </p>
 
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              Computer Science Student at VIT Chennai | Passionate Full-Stack Developer | AI Enthusiast
-            </p>
-            <p className="text-lg text-gray-500 dark:text-gray-400 mb-12">
-              Building innovative web solutions and exploring the intersection of technology and accessibility
-              <br />
-              <span className="block text-xl font-semibold text-gray-700 dark:text-gray-300 mt-2">
-                Tagline- “Designing for Impact, Building with Purpose”
-              </span>
-            </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <button
+              onClick={() => scrollToSection('projects')}
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              View My Work
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="px-8 py-4 border-2 border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transition-all duration-300"
+            >
+              Get In Touch
+            </button>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <button
-                onClick={() => scrollToSection('projects')}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                View My Work
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="px-8 py-4 border-2 border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transition-all duration-300"
-              >
-                Get In Touch
-              </button>
-            </div>
+          <div className="flex justify-center space-x-6">
+            <a href="https://github.com/Nithin-250" target="_blank" rel="noopener noreferrer" className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Github size={24} />
+            </a>
+            <a href="https://linkedin.com/in/nithin-s-63a7b3321" target="_blank" rel="noopener noreferrer" className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Linkedin size={24} />
+            </a>
+            <a href="mailto:nithin.s2024@vitstudent.ac.in" className="text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <Mail size={24} />
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
 
-            <div className="flex justify-center space-x-6">
-              <a href="https://github.com/Nithin-250" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <Github size={24} />
-              </a>
-              <a href="https://linkedin.com/in/nithin-s-63a7b3321" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <Linkedin size={24} />
-              </a>
-              <a href="mailto:nithin.s2024@vitstudent.ac.in" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <Mail size={24} />
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 bg-gray-50 dark:bg-gray-800">
+       {/* About Section */}
+      <section id="about" className="py-20 bg-gray-50 dark:bg-black">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">About Me</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">About Me</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto"></div>
           </motion.div>
 
@@ -278,13 +275,13 @@ export default function Portfolio() {
                 <h3 className="text-2xl font-semibold mb-6 text-blue-600 dark:text-blue-400">Education & Background</h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-lg">B.Tech Computer Science (Core)</h4>
-                    <p className="text-gray-600 dark:text-gray-300">Vellore Institute of Technology, Chennai</p>
-                    <p className="text-gray-500 dark:text-gray-400">Expected Graduation: 2028 | CGPA: 9.08</p>
+                    <h4 className="font-semibold text-lg text-gray-900 dark:text-white">B.Tech Computer Science (Core)</h4>
+                    <p className="text-gray-700 dark:text-white">Vellore Institute of Technology, Chennai</p>
+                    <p className="text-gray-600 dark:text-white">Expected Graduation: 2028 | CGPA: 9.08</p>
                   </div>
                   <div className="pt-4">
-                    <h4 className="font-semibold text-lg mb-2">Achievements</h4>
-                    <ul className="text-gray-600 dark:text-gray-300 space-y-1">
+                    <h4 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Achievements</h4>
+                    <ul className="text-gray-700 dark:text-white space-y-1">
                       <li>• Top 50 rank at World Scholar&apos;s Cup Global Round, Yale University</li>
                       <li>• Active participant in multiple hackathons</li>
                       <li>• Cricket enthusiast and keyboard player</li>
@@ -333,42 +330,42 @@ export default function Portfolio() {
       </section>
 
       {/* Fun Facts Section */}
-      <section id="funfacts" className="py-20 bg-white dark:bg-gray-900">
+      <section id="funfacts" className="py-20 bg-white dark:bg-black">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Fun Facts</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">Fun Facts</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-700 dark:text-white max-w-2xl mx-auto">
               A few fun things about me beyond coding:
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="bg-blue-50 dark:bg-blue-900 p-6 rounded-2xl shadow-lg text-center">
-              <h3 className="text-xl font-semibold mb-2">Music Lover</h3>
-              <p className="text-gray-700 dark:text-gray-300">I play keyboard and enjoy composing tunes in my free time.</p>
+              <h3 className="text-xl font-semibold mb-2 text-white">Music Lover</h3>
+              <p className="text-white">I play keyboard and enjoy composing tunes in my free time.</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} viewport={{ once: true }} className="bg-purple-50 dark:bg-purple-900 p-6 rounded-2xl shadow-lg text-center">
-              <h3 className="text-xl font-semibold mb-2">Cricket Enthusiast</h3>
-              <p className="text-gray-700 dark:text-gray-300">I love playing cricket and follow international matches closely.</p>
+              <h3 className="text-xl font-semibold mb-2 text-white">Cricket Enthusiast</h3>
+              <p className="text-white">I love playing cricket and follow international matches closely.</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }} className="bg-teal-50 dark:bg-teal-900 p-6 rounded-2xl shadow-lg text-center">
-              <h3 className="text-xl font-semibold mb-2">Puzzle Solver</h3>
-              <p className="text-gray-700 dark:text-gray-300">I enjoy solving brain teasers and competitive coding challenges.</p>
+              <h3 className="text-xl font-semibold mb-2 text-white">Puzzle Solver</h3>
+              <p className="text-white">I enjoy solving brain teasers and competitive coding challenges.</p>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20">
+      <section id="projects" className="py-20 bg-gray-50 dark:bg-black">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Featured Projects</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">Featured Projects</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-700 dark:text-white max-w-2xl mx-auto">
               Here are some of my recent projects that showcase my skills in web development and problem-solving.
             </p>
           </motion.div>
@@ -385,11 +382,11 @@ export default function Portfolio() {
               >
                 <div className="h-48 bg-gradient-to-br from-blue-400 via-purple-500 to-teal-400" />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{project.description}</p>
+                  <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">{project.title}</h3>
+                  <p className="text-gray-700 dark:text-white mb-4 line-clamp-3">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex} className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-sm">
+                      <span key={techIndex} className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-white rounded text-sm">
                         {tech}
                       </span>
                     ))}
@@ -413,19 +410,19 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section id="contact" className="py-20 bg-gray-50 dark:bg-black">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">Get In Touch</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-700 dark:text-white max-w-2xl mx-auto">
               I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="space-y-8">
-              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="space-y-8 text-white">
+              <h3 className="text-2xl font-semibold mb-6 text-white">Contact Information</h3>
 
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
@@ -433,8 +430,8 @@ export default function Portfolio() {
                     <Mail className="text-blue-600 dark:text-blue-400" size={20} />
                   </div>
                   <div>
-                    <p className="font-medium">Email</p>
-                    <a href="mailto:nithin.s2024@vitstudent.ac.in" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <p className="font-medium text-white">Email</p>
+                    <a href="mailto:nithin.s2024@vitstudent.ac.in" className="text-white hover:text-blue-400 transition-colors">
                       nithin.s2024@vitstudent.ac.in
                     </a>
                   </div>
@@ -445,8 +442,8 @@ export default function Portfolio() {
                     <Phone className="text-green-600 dark:text-green-400" size={20} />
                   </div>
                   <div>
-                    <p className="font-medium">Phone</p>
-                    <a href="tel:+916374672882" className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">
+                    <p className="font-medium text-white">Phone</p>
+                    <a href="tel:+916374672882" className="text-white hover:text-green-400 transition-colors">
                       +91 6374672882
                     </a>
                   </div>
@@ -457,8 +454,8 @@ export default function Portfolio() {
                     <MapPin className="text-purple-600 dark:text-purple-400" size={20} />
                   </div>
                   <div>
-                    <p className="font-medium">Location</p>
-                    <p className="text-gray-600 dark:text-gray-300">Chennai, India</p>
+                    <p className="font-medium text-white">Location</p>
+                    <p className="text-white">Chennai, India</p>
                   </div>
                 </div>
               </div>
@@ -475,32 +472,32 @@ export default function Portfolio() {
 
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
               <form className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg space-y-6">
-                <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
+                <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">Send a Message</h3>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">First Name</label>
-                    <input type="text" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
+                    <label className="block text-sm font-medium mb-2 text-gray-900 dark:text-white">First Name</label>
+                    <input type="text" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-all" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">Last Name</label>
-                    <input type="text" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
+                    <label className="block text-sm font-medium mb-2 text-gray-900 dark:text-white">Last Name</label>
+                    <input type="text" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-all" />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <input type="email" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
+                  <label className="block text-sm font-medium mb-2 text-gray-900 dark:text-white">Email</label>
+                  <input type="email" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-all" />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Subject</label>
-                  <input type="text" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
+                  <label className="block text-sm font-medium mb-2 text-gray-900 dark:text-white">Subject</label>
+                  <input type="text" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-all" />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">Message</label>
-                  <textarea rows={5} className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all resize-none"></textarea>
+                  <label className="block text-sm font-medium mb-2 text-gray-900 dark:text-white">Message</label>
+                  <textarea rows={5} className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-all resize-none"></textarea>
                 </div>
 
                 <button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-medium">
