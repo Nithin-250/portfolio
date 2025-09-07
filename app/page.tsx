@@ -64,6 +64,7 @@ export default function Portfolio() {
     }
   };
 
+  // ✅ Your projects array
   const projects = [
     {
       title: "AI ANALYST - Financial Intelligence Platform",
@@ -91,6 +92,7 @@ export default function Portfolio() {
     },
   ];
 
+  // ✅ Your skills object
   const skills = {
     programming: ["Python", "C++", "JavaScript", "TypeScript"],
     tools: ["Git", "VS Code", "React", "Next.js", "Node.js"],
@@ -98,15 +100,19 @@ export default function Portfolio() {
   };
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''} bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none`}>
+    <div
+      className={`min-h-screen transition-colors duration-300 ${
+        darkMode ? 'dark' : ''
+      } bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none`}
+    >
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          {/* ✅ Responsive Hi I'm Nithin S */}
+          {/* ✅ Responsive Hi I'm Nithin S (fixed for mobile) */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-xl sm:text-2xl md:text-3xl lg:text-4xl"
+            className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg sm:text-xl md:text-2xl lg:text-3xl"
           >
             Hi, I’m Nithin S
           </motion.div>
@@ -116,30 +122,49 @@ export default function Portfolio() {
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''}`}
+                className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                  activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''
+                }`}
               >
                 {section}
               </button>
             ))}
-            <button onClick={toggleDarkMode} className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
           </div>
 
           <div className="md:hidden flex items-center space-x-4">
-            <button onClick={toggleDarkMode} className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <button
+              onClick={toggleDarkMode}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
               {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
 
         {mobileMenuOpen && (
-          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700"
+          >
             {['home', 'about', 'projects', 'contact'].map((section) => (
-              <button key={section} onClick={() => scrollToSection(section)} className="block w-full text-left py-2 capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400">
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                className="block w-full text-left py-2 capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+              >
                 {section}
               </button>
             ))}
