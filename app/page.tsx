@@ -332,186 +332,298 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Fun Facts Section */}
-      <section id="funfacts"> 
-        <div className="py-20 bg-white dark:bg-black-900">
-        <div className="container mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
-            <h2 className="text-black-700 dark:text-white-300">Fun Facts</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-black-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 dark:text-white-300 max-w-2xl mx-auto">
-              A few fun things about me beyond coding:
+    {/* Fun Facts Section */}
+<section id="funfacts" className="py-20 bg-white dark:bg-black">
+  <div className="container mx-auto px-6">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl font-bold text-black dark:text-white">Fun Facts</h2>
+      <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+      <p className="text-xl text-black dark:text-white max-w-2xl mx-auto">
+        A few fun things about me beyond coding:
+      </p>
+    </motion.div>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="bg-white dark:bg-black p-6 rounded-2xl shadow-lg text-center"
+      >
+        <h3 className="text-black dark:text-white">Music Lover</h3>
+        <p className="text-black dark:text-white">
+          I play keyboard and enjoy composing tunes in my free time.
+        </p>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        viewport={{ once: true }}
+        className="bg-white dark:bg-black p-6 rounded-2xl shadow-lg text-center"
+      >
+        <h3 className="text-black dark:text-white">Cricket Enthusiast</h3>
+        <p className="text-black dark:text-white">
+          I love playing cricket and follow international matches closely.
+        </p>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="bg-white dark:bg-black p-6 rounded-2xl shadow-lg text-center"
+      >
+        <h3 className="text-black dark:text-white">Puzzle Solver</h3>
+        <p className="text-black dark:text-white">
+          I enjoy solving brain teasers and competitive coding challenges.
+        </p>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
+{/* Projects Section */}
+<section id="projects" className="py-20 bg-white dark:bg-black">
+  <div className="container mx-auto px-6">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black dark:text-white">
+        Featured Projects
+      </h2>
+      <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+      <p className="text-xl text-black dark:text-white max-w-2xl mx-auto">
+        Here are some of my recent projects that showcase my skills in web development and problem-solving.
+      </p>
+    </motion.div>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: index * 0.1 }}
+          viewport={{ once: true }}
+          className="bg-white dark:bg-black rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+        >
+          <div className="h-48 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-400" />
+          <div className="p-6">
+            <h3 className="text-xl font-semibold mb-3 text-black dark:text-white">
+              {project.title}
+            </h3>
+            <p className="text-black dark:text-white mb-4 line-clamp-3">
+              {project.description}
             </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="bg-blue-50 dark:bg-blue-900 p-6 rounded-2xl shadow-lg text-center">
-              <h3 className="text-grey-700 dark:text-white-300">Music Lover</h3>
-              <p className="text-grey-700 dark:text-white-300">I play keyboard and enjoy composing tunes in my free time.</p>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} viewport={{ once: true }} className="bg-purple-50 dark:bg-purple-900 p-6 rounded-2xl shadow-lg text-center">
-              <h3 className="text-black-700 dark:text-white-300">Cricket Enthusiast</h3>
-              <p className="text-black-700 dark:text-white-300">I love playing cricket and follow international matches closely.</p>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }} className="bg-teal-50 dark:bg-teal-900 p-6 rounded-2xl shadow-lg text-center">
-              <h3 className="text-black-700 dark:text-white-300">Puzzle Solver</h3>
-              <p className="text-black-700 dark:text-white-300">I enjoy solving brain teasers and competitive coding challenges.</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20">
-        <div className="container mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Featured Projects</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-black-600 mx-auto mb-6"></div>
-            <p className="text-xl text-grey-600 dark:text-white-300 max-w-2xl mx-auto">
-              Here are some of my recent projects that showcase my skills in web development and problem-solving.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-white dark:bg-black-900 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.tech.map((tech, techIndex) => (
+                <span
+                  key={techIndex}
+                  className="px-2 py-1 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded text-sm"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <div className="flex justify-between items-center">
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
               >
-                <div className="h-48 bg-gradient-to-br from-blue-400 via-purple-500 to-black-400" />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-white-300 mb-4 line-clamp-3">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex} className="px-2 py-1 bg-gray-100 dark:bg-white-800 text-gray-700 dark:text-white-300 rounded text-sm">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-blue-600 dark:text-black-400 hover:text-blue-800 dark:hover:text-black-300 transition-colors"
-                    >
-                      <span>View Live</span>
-                      <ExternalLink size={16} />
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                <span>View Live</span>
+                <ExternalLink size={16} />
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
+{/* Contact Section */}
+<section id="contact" className="py-20 bg-white dark:bg-black">
+  <div className="container mx-auto px-6">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black dark:text-white">
+        Get In Touch
+      </h2>
+      <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+      <p className="text-xl text-black dark:text-white max-w-2xl mx-auto">
+        I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology.
+      </p>
+    </motion.div>
+
+    <div className="grid md:grid-cols-2 gap-12">
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="space-y-8"
+      >
+        <h3 className="text-2xl font-semibold mb-6 text-black dark:text-white">
+          Contact Information
+        </h3>
+
+        <div className="space-y-4">
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+              <Mail className="text-blue-600 dark:text-blue-400" size={20} />
+            </div>
+            <div>
+              <p className="font-medium text-black dark:text-white">Email</p>
+              <a
+                href="mailto:nithin.s2024@vitstudent.ac.in"
+                className="text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                nithin.s2024@vitstudent.ac.in
+              </a>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+              <Phone className="text-green-600 dark:text-green-400" size={20} />
+            </div>
+            <div>
+              <p className="font-medium text-black dark:text-white">Phone</p>
+              <a
+                href="tel:+916374672882"
+                className="text-black dark:text-white hover:text-green-600 dark:hover:text-green-400 transition-colors"
+              >
+                +91 6374672882
+              </a>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+              <MapPin className="text-purple-600 dark:text-purple-400" size={20} />
+            </div>
+            <div>
+              <p className="font-medium text-black dark:text-white">Location</p>
+              <p className="text-black dark:text-white">Chennai, India</p>
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white-50 dark:bg-black-800">
-        <div className="container mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-black-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 dark:text-white-300 max-w-2xl mx-auto">
-              I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="space-y-8">
-              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-black-900 rounded-lg flex items-center justify-center">
-                    <Mail className="text-blue-600 dark:text-white-400" size={20} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Email</p>
-                    <a href="mailto:nithin.s2024@vitstudent.ac.in" className="text-gray-600 dark:text-white-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                      nithin.s2024@vitstudent.ac.in
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-green-100 dark:bg-black-900 rounded-lg flex items-center justify-center">
-                    <Phone className="text-green-600 dark:text-white-400" size={20} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Phone</p>
-                    <a href="tel:+916374672882" className="text-gray-600 dark:text-white-300 hover:text-green-600 dark:hover:text-white-400 transition-colors">
-                      +91 6374672882
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-purple-100 dark:bg-black-900 rounded-lg flex items-center justify-center">
-                    <MapPin className="text-purple-600 dark:text-white-400" size={20} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Location</p>
-                    <p className="text-gray-600 dark:text-white-300">Chennai, India</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex space-x-4">
-                <a href="https://github.com/Nithin-250" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-gray-100 dark:bg-black-700 rounded-lg flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-                  <Github size={20} />
-                </a>
-                <a href="https://linkedin.com/in/nithin-s-63a7b3321" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-blue-100 dark:bg-black-900 rounded-lg flex items-center justify-center hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">
-                  <Linkedin size={20} />
-                </a>
-              </div>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-              <form className="bg-white dark:bg-black-900 p-8 rounded-2xl shadow-lg space-y-6">
-                <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">First Name</label>
-                    <input type="text" className="w-full px-4 py-3 border border-white-300 dark:border-black-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Last Name</label>
-                    <input type="text" className="w-full px-4 py-3 border border-white-300 dark:border-black-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
-                  <input type="email" className="w-full px-4 py-3 border border-white-300 dark:border-black-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Subject</label>
-                  <input type="text" className="w-full px-4 py-3 border border-white-300 dark:border-black-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Message</label>
-                  <textarea rows={5} className="w-full px-4 py-3 border border-white-300 dark:border-black-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all resize-none"></textarea>
-                </div>
-
-                <button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-medium">
-                  Send Message
-                </button>
-              </form>
-            </motion.div>
-          </div>
+        <div className="flex space-x-4">
+          <a
+            href="https://github.com/Nithin-250"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+          >
+            <Github className="text-black dark:text-white" size={20} />
+          </a>
+          <a
+            href="https://linkedin.com/in/nithin-s-63a7b3321"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center hover:bg-blue-300 dark:hover:bg-blue-600 transition-colors"
+          >
+            <Linkedin className="text-black dark:text-white" size={20} />
+          </a>
         </div>
-      </section>
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <form className="bg-white dark:bg-black p-8 rounded-2xl shadow-lg space-y-6">
+          <h3 className="text-2xl font-semibold mb-6 text-black dark:text-white">
+            Send a Message
+          </h3>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-2 text-black dark:text-white">
+                First Name
+              </label>
+              <input
+                type="text"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-black text-black dark:text-white transition-all"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-2 text-black dark:text-white">
+                Last Name
+              </label>
+              <input
+                type="text"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-black text-black dark:text-white transition-all"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-2 text-black dark:text-white">
+              Email
+            </label>
+            <input
+              type="email"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-black text-black dark:text-white transition-all"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-2 text-black dark:text-white">
+              Subject
+            </label>
+            <input
+              type="text"
+              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-black text-black dark:text-white transition-all"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-2 text-black dark:text-white">
+              Message
+            </label>
+            <textarea
+              rows={5}
+              className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-black text-black dark:text-white transition-all resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-medium"
+          >
+            Send Message
+          </button>
+        </form>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
