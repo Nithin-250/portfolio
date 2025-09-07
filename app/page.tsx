@@ -123,11 +123,11 @@ export default function Portfolio() {
     interests: ["Web Development", "Accessibility in Tech", "Game Design", "AI/ML"],
   };
   return (
-  <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''} bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none`}>
+  <div className="min-h-screen transition-colors duration-300 bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none">
     {/* Navigation */}
     <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* ✅ Responsive "Hi, I’m Nithin S" */}
+        {/* Responsive "Hi, I’m Nithin S" */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -136,6 +136,7 @@ export default function Portfolio() {
           Nithin S
         </motion.div>
 
+        {/* Desktop menu */}
         <div className="hidden md:flex items-center space-x-8">
           {['home', 'about', 'projects', 'contact'].map((section) => (
             <button
@@ -146,24 +147,53 @@ export default function Portfolio() {
               {section}
             </button>
           ))}
-          {/* ✅ Dark mode toggle fixed */}
-          <button onClick={toggleDarkMode} className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+
+          {/* Dark mode toggle */}
+          <button
+            onClick={toggleDarkMode}
+            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          >
             {darkMode ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        <div className="md:hidden flex items-center space-x-4">
+          <button
+            onClick={toggleDarkMode}
+            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          >
+            {darkMode ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          >
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
-        {mobileMenuOpen && (
-          <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700">
-            {['home', 'about', 'projects', 'contact'].map((section) => (
-              <button key={section} onClick={() => scrollToSection(section)} className="block w-full text-left py-2 capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400">
-                {section}
-              </button>
-            ))}
-          </motion.div>
-        )}
-      </nav>
-
+      {/* Mobile dropdown menu */}
+      {mobileMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700"
+        >
+          {['home', 'about', 'projects', 'contact'].map((section) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className="block w-full text-left py-2 capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+            >
+              {section}
+            </button>
+          ))}
+        </motion.div>
+      )}
+    </nav>
 
 
 
