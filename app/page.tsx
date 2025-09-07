@@ -1,22 +1,17 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Phone, MapPin, Sun, Moon, Menu, X, ExternalLink } from 'lucide-react';
 
 export default function Portfolio() {
-  // ✅ default light mode, apply html class immediately
+  // ✅ default light mode
   const [darkMode, setDarkMode] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('theme');
-      if (saved === 'dark') {
-        document.documentElement.classList.add('dark');
-        return true;
-      }
+      return localStorage.getItem('theme') === 'dark';
     }
     return false; // fallback → light
   });
 
+  // Mobile menu & active section
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
@@ -24,22 +19,34 @@ export default function Portfolio() {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [cursorHover, setCursorHover] = useState(false);
 
+  // Initialize theme from localStorage on mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setDarkMode(savedTheme === 'dark');
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        setDarkMode(true);
+      } else {
+        document.documentElement.classList.remove('dark');
+        setDarkMode(false);
+      }
     }
   }, []);
 
+  // Apply dark/light class whenever darkMode changes
   useEffect(() => {
-    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
+    if (typeof window !== 'undefined') {
+      if (darkMode) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      }
     }
   }, [darkMode]);
 
+  // Cursor movement & hover detection
   useEffect(() => {
     const handleMove = (e: MouseEvent) => setCursorPos({ x: e.clientX, y: e.clientY });
     const handlePointerOver = (e: PointerEvent) => {
@@ -50,9 +57,11 @@ export default function Portfolio() {
       const target = e.target as HTMLElement | null;
       if (target?.closest('a, button, input, textarea, select, [data-cursor-hover]')) setCursorHover(false);
     };
+
     window.addEventListener('mousemove', handleMove);
     window.addEventListener('pointerover', handlePointerOver);
     window.addEventListener('pointerout', handlePointerOut);
+
     return () => {
       window.removeEventListener('mousemove', handleMove);
       window.removeEventListener('pointerover', handlePointerOver);
@@ -60,7 +69,10 @@ export default function Portfolio() {
     };
   }, []);
 
-  const toggleDarkMode = () => setDarkMode(!darkMode);
+  // Toggle dark mode
+  const toggleDarkMode = () => setDarkMode(prev => !prev);
+}
+
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
