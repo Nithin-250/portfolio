@@ -21,7 +21,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 
 ## 🚀 Live Demo
 
-[View Live Portfolio](https://your-vercel-deployment-url.vercel.app)
+[View Live Portfolio](https://portfolio-as6b.vercel.app/)
 
 ## 🛠️ Technology Stack
 
