@@ -71,7 +71,8 @@ export default function Portfolio() {
 
   // Toggle dark mode
   const toggleDarkMode = () => setDarkMode(prev => !prev);
-}
+} // ✅ Only one closing bracket here
+
 
 
   const scrollToSection = (sectionId: string) => {
