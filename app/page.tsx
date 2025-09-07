@@ -206,7 +206,7 @@ export default function Portfolio() {
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-pink-50 to-purple-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-pink-50 to-purple-100 dark:from-gray-900 dark:via-black-800 dark:to-black-900"></div>
         <div className="absolute inset-0">
           <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob" />
           <div className="absolute top-40 right-20 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000" />
@@ -217,7 +217,7 @@ export default function Portfolio() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 relative z-10">
              Hi, I&apos;m{' '}
-             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
+             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-black-600 bg-clip-text text-transparent">
              Nithin S
              </span>
              </h1>
@@ -243,7 +243,7 @@ export default function Portfolio() {
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="px-8 py-4 border-2 border-blue-600 text-blue-600 dark:border-blue-400 dark:text-blue-400 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transition-all duration-300"
+                className="px-8 py-4 border-2 border-blue-600 text-blue-600 dark:border-blue-400 dark:text-white-400 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-black-400 dark:hover:text-gray-900 transition-all duration-300"
               >
                 Get In Touch
               </button>
@@ -274,8 +274,8 @@ export default function Portfolio() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-              <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg">
-                <h3 className="text-2xl font-semibold mb-6 text-blue-600 dark:text-blue-400">Education & Background</h3>
+              <div className="bg-white dark:bg-black-900 p-8 rounded-2xl shadow-lg">
+                <h3 className="text-2xl font-semibold mb-6 text-blue-600 dark:text-white-400">Education & Background</h3>
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-lg">B.Tech Computer Science (Core)</h4>
@@ -295,11 +295,11 @@ export default function Portfolio() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="space-y-6">
-              <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg">
+              <div className="bg-white dark:bg-black-900 p-6 rounded-2xl shadow-lg">
                 <h3 className="text-xl font-semibold mb-4 text-purple-600 dark:text-purple-400">Programming Languages</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.programming.map((skill, index) => (
-                    <span key={index} className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full text-sm">
+                    <span key={index} className="px-3 py-1 bg-blue-100 dark:bg-white-900 text-blue-700 dark:text-white-300 rounded-full text-sm">
                       {skill}
                     </span>
                   ))}
@@ -310,7 +310,7 @@ export default function Portfolio() {
                 <h3 className="text-xl font-semibold mb-4 text-green-600 dark:text-white-400">Tools & Frameworks</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.tools.map((skill, index) => (
-                    <span key={index} className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded-full text-sm">
+                    <span key={index} className="px-3 py-1 bg-green-100 dark:bg-black-900 text-green-700 dark:text-white-300 rounded-full text-sm">
                       {skill}
                     </span>
                   ))}
@@ -321,7 +321,7 @@ export default function Portfolio() {
                 <h3 className="text-xl font-semibold mb-4 text-orange-600 dark:text-orange-400">Interests</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.interests.map((skill, index) => (
-                    <span key={index} className="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded-full text-sm">
+                    <span key={index} className="px-3 py-1 bg-orange-100 dark:bg-white-900 text-orange-700 dark:text-white-300 rounded-full text-sm">
                       {skill}
                     </span>
                   ))}
@@ -337,7 +337,7 @@ export default function Portfolio() {
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Fun Facts</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-black-600 mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 dark:text-white-300 max-w-2xl mx-auto">
               A few fun things about me beyond coding:
             </p>
@@ -367,7 +367,7 @@ export default function Portfolio() {
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Featured Projects</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-black-600 mx-auto mb-6"></div>
             <p className="text-xl text-grey-600 dark:text-white-300 max-w-2xl mx-auto">
               Here are some of my recent projects that showcase my skills in web development and problem-solving.
             </p>
@@ -383,7 +383,7 @@ export default function Portfolio() {
                 viewport={{ once: true }}
                 className="bg-white dark:bg-black-900 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
-                <div className="h-48 bg-gradient-to-br from-blue-400 via-purple-500 to-teal-400" />
+                <div className="h-48 bg-gradient-to-br from-blue-400 via-purple-500 to-black-400" />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
                   <p className="text-gray-600 dark:text-white-300 mb-4 line-clamp-3">{project.description}</p>
@@ -399,7 +399,7 @@ export default function Portfolio() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+                      className="flex items-center space-x-2 text-blue-600 dark:text-black-400 hover:text-blue-800 dark:hover:text-black-300 transition-colors"
                     >
                       <span>View Live</span>
                       <ExternalLink size={16} />
@@ -417,7 +417,7 @@ export default function Portfolio() {
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-black-600 mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 dark:text-white-300 max-w-2xl mx-auto">
               I&apos;m always open to discussing new opportunities, interesting projects, or just having a chat about technology.
             </p>
@@ -429,7 +429,7 @@ export default function Portfolio() {
 
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-blue-100 dark:bg-black-900 rounded-lg flex items-center justify-center">
                     <Mail className="text-blue-600 dark:text-white-400" size={20} />
                   </div>
                   <div>
@@ -453,7 +453,7 @@ export default function Portfolio() {
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-purple-100 dark:bg-black-900 rounded-lg flex items-center justify-center">
                     <MapPin className="text-purple-600 dark:text-white-400" size={20} />
                   </div>
                   <div>
@@ -464,10 +464,10 @@ export default function Portfolio() {
               </div>
 
               <div className="flex space-x-4">
-                <a href="https://github.com/Nithin-250" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-gray-100 dark:bg-white-700 rounded-lg flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                <a href="https://github.com/Nithin-250" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-gray-100 dark:bg-black-700 rounded-lg flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
                   <Github size={20} />
                 </a>
-                <a href="https://linkedin.com/in/nithin-s-63a7b3321" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-blue-100 dark:bg-white-900 rounded-lg flex items-center justify-center hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">
+                <a href="https://linkedin.com/in/nithin-s-63a7b3321" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-blue-100 dark:bg-black-900 rounded-lg flex items-center justify-center hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors">
                   <Linkedin size={20} />
                 </a>
               </div>
@@ -480,27 +480,27 @@ export default function Portfolio() {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium mb-2">First Name</label>
-                    <input type="text" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
+                    <input type="text" className="w-full px-4 py-3 border border-white-300 dark:border-black-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">Last Name</label>
-                    <input type="text" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
+                    <input type="text" className="w-full px-4 py-3 border border-white-300 dark:border-black-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2">Email</label>
-                  <input type="email" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
+                  <input type="email" className="w-full px-4 py-3 border border-white-300 dark:border-black-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2">Subject</label>
-                  <input type="text" className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
+                  <input type="text" className="w-full px-4 py-3 border border-white-300 dark:border-black-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all" />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2">Message</label>
-                  <textarea rows={5} className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all resize-none"></textarea>
+                  <textarea rows={5} className="w-full px-4 py-3 border border-white-300 dark:border-black-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 transition-all resize-none"></textarea>
                 </div>
 
                 <button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 font-medium">
