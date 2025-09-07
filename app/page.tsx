@@ -130,13 +130,13 @@ export default function Portfolio() {
   return (
   <div className="min-h-screen transition-colors duration-300 cursor-none">
     {/* Navigation */}
-    <nav className="fixed top-0 w-full bg-white/90 dark:bg-black-900/90 backdrop-blur-md z-50 border-b border-white-200 dark:border-gray-700">
+    <nav className="fixed top-0 w-full bg-white/90 dark:bg-black-900/90 backdrop-blur-md z-50 border-b border-white-200 dark:border-black-700">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Responsive "Hi, I’m Nithin S" */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-base sm:text-lg md:text-2xl lg:text-3xl"
+          className="font-bold bg-gradient-to-r from-blue-600 to-black-600 bg-clip-text text-transparent text-base sm:text-lg md:text-2xl lg:text-3xl"
         >
           Nithin S
         </motion.div>
@@ -147,8 +147,8 @@ export default function Portfolio() {
             <button
               key={section}
               onClick={() => scrollToSection(section)}
-              className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
-                activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''
+              className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-black-400 ${
+                activeSection === section ? 'text-blue-600 dark:text-black-400' : ''
               }`}
             >
               {section}
@@ -193,7 +193,7 @@ export default function Portfolio() {
             <button
               key={section}
               onClick={() => scrollToSection(section)}
-              className="block w-full text-left py-2 capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+              className="block w-full text-left py-2 capitalize transition-colors hover:text-blue-600 dark:hover:text-white-400"
             >
               {section}
             </button>
@@ -217,7 +217,7 @@ export default function Portfolio() {
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 relative z-10">
              Hi, I&apos;m{' '}
-             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-black-600 bg-clip-text text-transparent">
+             <span className="bg-gradient-to-r from-blue-600 via-black-600 to-black-600 bg-clip-text text-transparent">
              Nithin S
              </span>
              </h1>
@@ -237,26 +237,26 @@ export default function Portfolio() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <button
                 onClick={() => scrollToSection('projects')}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-white-600 text-white rounded-full hover:from-blue-700 hover:to-white-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 View My Work
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="px-8 py-4 border-2 border-blue-600 text-blue-600 dark:border-blue-400 dark:text-white-400 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-black-400 dark:hover:text-gray-900 transition-all duration-300"
+                className="px-8 py-4 border-2 border-blue-600 text-blue-600 dark:border-blue-400 dark:text-white-400 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-black-400 dark:hover:text-white-900 transition-all duration-300"
               >
                 Get In Touch
               </button>
             </div>
 
             <div className="flex justify-center space-x-6">
-              <a href="https://github.com/Nithin-250" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-white-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <a href="https://github.com/Nithin-250" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-white-400 hover:text-blue-600 dark:hover:text-white-400 transition-colors">
                 <Github size={24} />
               </a>
-              <a href="https://linkedin.com/in/nithin-s-63a7b3321" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-white-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <a href="https://linkedin.com/in/nithin-s-63a7b3321" target="_blank" rel="noopener noreferrer" className="text-black-600 dark:text-white-400 hover:text-blue-600 dark:hover:text-white-400 transition-colors">
                 <Linkedin size={24} />
               </a>
-              <a href="mailto:nithin.s2024@vitstudent.ac.in" className="text-gray-600 dark:text-white-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <a href="mailto:nithin.s2024@vitstudent.ac.in" className="text-gray-600 dark:text-white-400 hover:text-blue-600 dark:hover:text-white-400 transition-colors">
                 <Mail size={24} />
               </a>
             </div>
@@ -278,12 +278,12 @@ export default function Portfolio() {
                 <h3 className="text-2xl font-semibold mb-6 text-blue-600 dark:text-white-400">Education & Background</h3>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-lg">B.Tech Computer Science (Core)</h4>
-                    <p className="text-gray-600 dark:text-white-300">Vellore Institute of Technology, Chennai</p>
-                    <p className="text-gray-500 dark:text-white-400">Expected Graduation: 2028 | CGPA: 9.08</p>
+                    <h4 className="text-black-600 dark:text-white-300">B.Tech Computer Science (Core)</h4>
+                    <p className="text-black-600 dark:text-white-300">Vellore Institute of Technology, Chennai</p>
+                    <p className="text-black-500 dark:text-white-400">Expected Graduation: 2028 | CGPA: 9.08</p>
                   </div>
                   <div className="pt-4">
-                    <h4 className="font-semibold text-lg mb-2">Achievements</h4>
+                    <h4 className="text-black-600 dark:text-white-300">Achievements</h4>
                     <ul className="text-gray-600 dark:text-white-300 space-y-1">
                       <li>• Top 50 rank at World Scholar&apos;s Cup Global Round, Yale University</li>
                       <li>• Active participant in multiple hackathons</li>
@@ -321,7 +321,7 @@ export default function Portfolio() {
                 <h3 className="text-xl font-semibold mb-4 text-orange-600 dark:text-orange-400">Interests</h3>
                 <div className="flex flex-wrap gap-2">
                   {skills.interests.map((skill, index) => (
-                    <span key={index} className="px-3 py-1 bg-orange-100 dark:bg-white-900 text-orange-700 dark:text-white-300 rounded-full text-sm">
+                    <span key={index} className="px-3 py-1 bg-orange-100 dark:bg-black-900 text-orange-700 dark:text-orange-300 rounded-full text-sm">
                       {skill}
                     </span>
                   ))}
@@ -333,10 +333,11 @@ export default function Portfolio() {
       </section>
 
       {/* Fun Facts Section */}
-      <section id="funfacts" className="py-20 bg-white dark:bg-black-900">
+      <section id="funfacts"> 
+        <div className="py-20 bg-white dark:bg-black-900">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Fun Facts</h2>
+            <h2 className="text-black-700 dark:text-white-300">Fun Facts</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-black-600 mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 dark:text-white-300 max-w-2xl mx-auto">
               A few fun things about me beyond coding:
@@ -345,18 +346,18 @@ export default function Portfolio() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="bg-blue-50 dark:bg-blue-900 p-6 rounded-2xl shadow-lg text-center">
-              <h3 className="text-xl font-semibold mb-2">Music Lover</h3>
+              <h3 className="text-grey-700 dark:text-white-300">Music Lover</h3>
               <p className="text-grey-700 dark:text-white-300">I play keyboard and enjoy composing tunes in my free time.</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} viewport={{ once: true }} className="bg-purple-50 dark:bg-purple-900 p-6 rounded-2xl shadow-lg text-center">
-              <h3 className="text-xl font-semibold mb-2">Cricket Enthusiast</h3>
-              <p className="text-gray-700 dark:text-white-300">I love playing cricket and follow international matches closely.</p>
+              <h3 className="text-black-700 dark:text-white-300">Cricket Enthusiast</h3>
+              <p className="text-black-700 dark:text-white-300">I love playing cricket and follow international matches closely.</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }} className="bg-teal-50 dark:bg-teal-900 p-6 rounded-2xl shadow-lg text-center">
-              <h3 className="text-xl font-semibold mb-2">Puzzle Solver</h3>
-              <p className="text-gray-700 dark:text-white-300">I enjoy solving brain teasers and competitive coding challenges.</p>
+              <h3 className="text-black-700 dark:text-white-300">Puzzle Solver</h3>
+              <p className="text-black-700 dark:text-white-300">I enjoy solving brain teasers and competitive coding challenges.</p>
             </motion.div>
           </div>
         </div>
