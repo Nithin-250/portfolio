@@ -1,6 +1,21 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  Sun,
+  Moon,
+  Menu,
+  X,
+  ExternalLink
+} from 'lucide-react';
+
+
 
 export default function Portfolio() {
   // ✅ default light mode
