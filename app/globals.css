@@ -1,4 +1,4 @@
-for this code is my global.css tailwind crct @import "tailwindcss";
+@import "tailwindcss";
 
 /* Base colors using Tailwind and dark mode toggle */
 body {
