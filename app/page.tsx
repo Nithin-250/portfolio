@@ -16,18 +16,14 @@ import {
 } from 'lucide-react';
 
 export default function Portfolio() {
-  // ✅ default light mode
-  const [darkMode, setDarkMode] = useState<boolean>(false);
-
-  // Mobile menu & active section
+  const [darkMode, setDarkMode] = useState<boolean>(false); // default light
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  // Cursor states
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [cursorHover, setCursorHover] = useState(false);
 
-  // Apply dark/light class whenever darkMode changes
+  // Apply dark/light class on toggle
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (darkMode) {
@@ -40,7 +36,7 @@ export default function Portfolio() {
     }
   }, [darkMode]);
 
-  // Cursor movement & hover detection
+  // Cursor tracking
   useEffect(() => {
     const handleMove = (e: MouseEvent) => setCursorPos({ x: e.clientX, y: e.clientY });
     const handlePointerOver = (e: PointerEvent) => {
@@ -51,11 +47,9 @@ export default function Portfolio() {
       const target = e.target as HTMLElement | null;
       if (target?.closest('a, button, input, textarea, select, [data-cursor-hover]')) setCursorHover(false);
     };
-
     window.addEventListener('mousemove', handleMove);
     window.addEventListener('pointerover', handlePointerOver);
     window.addEventListener('pointerout', handlePointerOut);
-
     return () => {
       window.removeEventListener('mousemove', handleMove);
       window.removeEventListener('pointerover', handlePointerOver);
@@ -63,7 +57,6 @@ export default function Portfolio() {
     };
   }, []);
 
-  // Toggle dark mode
   const toggleDarkMode = () => setDarkMode(prev => !prev);
 
   const scrollToSection = (sectionId: string) => {
@@ -75,11 +68,44 @@ export default function Portfolio() {
     }
   };
 
+  // Projects
+  const projects = [
+    {
+      title: "AI ANALYST - Financial Intelligence Platform",
+      description:
+        "Advanced AI-powered financial analysis platform with fraud detection, real-time analytics, and market intelligence designed for Indian banking systems.",
+      tech: ["React", "TypeScript", "AI/ML", "Financial APIs"],
+      liveUrl: "https://project-mopb.vercel.app/",
+      image: "/api/placeholder/400/250",
+    },
+    {
+      title: "Weather Forecast App",
+      description:
+        "Real-time weather application providing current conditions, 5-day forecasts, and location-based weather data with a clean, responsive interface.",
+      tech: ["React", "Weather API", "CSS3", "JavaScript"],
+      liveUrl: "https://weather-pi-umber-43.vercel.app/",
+      image: "/api/placeholder/400/250",
+    },
+    {
+      title: "React Talkify Application",
+      description:
+        "Interactive Website URL to audio Podcast convertor in an attempt to help visually impaired people.",
+      tech: ["React", "JavaScript", "CSS3", "Responsive Design"],
+      liveUrl: "https://rman-6.vercel.app/",
+      image: "/api/placeholder/400/250",
+    },
+  ];
+
+  const skills = {
+    programming: ["Python", "C++", "JavaScript", "TypeScript"],
+    tools: ["Git", "VS Code", "React", "Next.js", "Node.js"],
+    interests: ["Web Development", "Accessibility in Tech", "Game Design", "AI/ML"],
+  };
+
   return (
-    <div className="min-h-screen transition-colors duration-300 cursor-none">
+    <div className="min-h-screen transition-colors duration-300 bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full backdrop-blur-md z-50 border-b transition-colors
-                      bg-white/90 border-gray-200 dark:bg-gray-900/90 dark:border-gray-700">
+      <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -89,53 +115,49 @@ export default function Portfolio() {
             Nithin S
           </motion.div>
 
-          {/* Desktop menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {['home', 'about', 'projects', 'contact'].map((section) => (
+            {['home', 'about', 'skills', 'projects', 'contact'].map(section => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400
-                            ${activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''}`}
+                className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''}`}
               >
                 {section}
               </button>
             ))}
 
-            {/* Dark mode toggle */}
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg transition-colors bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700"
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
               {darkMode ? <Moon size={20} /> : <Sun size={20} />}
             </button>
           </div>
 
-          {/* Mobile menu */}
           <div className="md:hidden flex items-center space-x-4">
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg transition-colors bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700"
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
               {darkMode ? <Moon size={20} /> : <Sun size={20} />}
             </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg transition-colors bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700"
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
               {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile dropdown menu */}
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700"
           >
-            {['home', 'about', 'projects', 'contact'].map((section) => (
+            {['home', 'about', 'skills', 'projects', 'contact'].map(section => (
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
