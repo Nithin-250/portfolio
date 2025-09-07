@@ -114,7 +114,7 @@ export default function Portfolio() {
             animate={{ opacity: 1, x: 0 }}
             className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-lg sm:text-xl md:text-2xl lg:text-3xl"
           >
-            Hi, I’m Nithin S
+           Nithin S
           </motion.div>
 
           <div className="hidden md:flex items-center space-x-8">
