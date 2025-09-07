@@ -19,11 +19,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  darkMode = false, // Added prop to control dark mode
 }: Readonly<{
   children: React.ReactNode;
+  darkMode?: boolean;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={darkMode ? "dark" : ""}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
