@@ -41,18 +41,18 @@ export default function Portfolio() {
     }
   }, []);
 
-  // Apply dark/light class whenever darkMode changes
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      if (darkMode) {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => {
+      const next = !prev;
+      if (typeof window !== 'undefined') {
+        if (next) document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', next ? 'dark' : 'light');
       }
-    }
-  }, [darkMode]);
+      return next;
+    });
+  };
 
   // Cursor movement & hover detection
   useEffect(() => {
@@ -76,9 +76,6 @@ export default function Portfolio() {
       window.removeEventListener('pointerout', handlePointerOut);
     };
   }, []);
-
-  // Toggle dark mode
-  const toggleDarkMode = () => setDarkMode(prev => !prev);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
