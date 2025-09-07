@@ -151,6 +151,7 @@ export default function Portfolio() {
             {darkMode ? <Moon size={20} /> : <Sun size={20} />}
           </button>
         </div>
+      </div>
 
         {mobileMenuOpen && (
           <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="md:hidden mt-4 py-4 border-t border-gray-200 dark:border-gray-700">
