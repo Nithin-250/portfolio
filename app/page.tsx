@@ -17,7 +17,7 @@ import {
 
 export default function Portfolio() {
   // ✅ default light mode
-  const [darkMode, setDarkMode] = useState(false); // Always light mode on page load
+  const [darkMode, setDarkMode] = useState<boolean>(false); // always false on load
 
   // Mobile menu & active section
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,13 +27,29 @@ export default function Portfolio() {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [cursorHover, setCursorHover] = useState(false);
 
+  // Initialize theme on mount
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        setDarkMode(true);
+      } else {
+        document.documentElement.classList.remove('dark'); // force light mode
+        setDarkMode(false); // Sun icon
+      }
+    }
+  }, []);
+
   // Apply dark/light class whenever darkMode changes
   useEffect(() => {
     if (typeof window !== 'undefined') {
       if (darkMode) {
         document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
       } else {
         document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
       }
     }
   }, [darkMode]);
@@ -73,6 +89,7 @@ export default function Portfolio() {
     }
   };
 
+  // Projects
   const projects = [
     {
       title: "AI ANALYST - Financial Intelligence Platform",
@@ -106,42 +123,33 @@ export default function Portfolio() {
     interests: ["Web Development", "Accessibility in Tech", "Game Design", "AI/ML"],
   };
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''} bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none`}>
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
-        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          {/* ✅ Responsive "Hi, I’m Nithin S" */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-base sm:text-lg md:text-2xl lg:text-3xl"
-          >
-            Nithin S
-          </motion.div>
+  <div className={`min-h-screen transition-colors duration-300 ${darkMode ? 'dark' : ''} bg-white dark:bg-gray-900 text-gray-900 dark:text-white cursor-none`}>
+    {/* Navigation */}
+    <nav className="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        {/* ✅ Responsive "Hi, I’m Nithin S" */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-base sm:text-lg md:text-2xl lg:text-3xl"
+        >
+          Nithin S
+        </motion.div>
 
-          <div className="hidden md:flex items-center space-x-8">
-            {['home', 'about', 'projects', 'contact'].map((section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''}`}
-              >
-                {section}
-              </button>
-            ))}
-            <button onClick={toggleDarkMode} className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+        <div className="hidden md:flex items-center space-x-8">
+          {['home', 'about', 'projects', 'contact'].map((section) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className={`capitalize transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${activeSection === section ? 'text-blue-600 dark:text-blue-400' : ''}`}
+            >
+              {section}
             </button>
-          </div>
-
-          <div className="md:hidden flex items-center space-x-4">
-            <button onClick={toggleDarkMode} className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-              {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
-          </div>
+          ))}
+          {/* ✅ Dark mode toggle fixed */}
+          <button onClick={toggleDarkMode} className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            {darkMode ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
         </div>
 
         {mobileMenuOpen && (
