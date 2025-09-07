@@ -333,12 +333,12 @@ export default function Portfolio() {
       </section>
 
       {/* Fun Facts Section */}
-      <section id="funfacts" className="py-20 bg-white dark:bg-gray-900">
+      <section id="funfacts" className="py-20 bg-white dark:bg-black-900">
         <div className="container mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Fun Facts</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-white-300 max-w-2xl mx-auto">
               A few fun things about me beyond coding:
             </p>
           </motion.div>
@@ -346,17 +346,17 @@ export default function Portfolio() {
           <div className="grid md:grid-cols-3 gap-8">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="bg-blue-50 dark:bg-blue-900 p-6 rounded-2xl shadow-lg text-center">
               <h3 className="text-xl font-semibold mb-2">Music Lover</h3>
-              <p className="text-gray-700 dark:text-gray-300">I play keyboard and enjoy composing tunes in my free time.</p>
+              <p className="text-grey-700 dark:text-white-300">I play keyboard and enjoy composing tunes in my free time.</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} viewport={{ once: true }} className="bg-purple-50 dark:bg-purple-900 p-6 rounded-2xl shadow-lg text-center">
               <h3 className="text-xl font-semibold mb-2">Cricket Enthusiast</h3>
-              <p className="text-gray-700 dark:text-gray-300">I love playing cricket and follow international matches closely.</p>
+              <p className="text-gray-700 dark:text-white-300">I love playing cricket and follow international matches closely.</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} viewport={{ once: true }} className="bg-teal-50 dark:bg-teal-900 p-6 rounded-2xl shadow-lg text-center">
               <h3 className="text-xl font-semibold mb-2">Puzzle Solver</h3>
-              <p className="text-gray-700 dark:text-gray-300">I enjoy solving brain teasers and competitive coding challenges.</p>
+              <p className="text-gray-700 dark:text-white-300">I enjoy solving brain teasers and competitive coding challenges.</p>
             </motion.div>
           </div>
         </div>
@@ -368,7 +368,7 @@ export default function Portfolio() {
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Featured Projects</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-grey-600 dark:text-white-300 max-w-2xl mx-auto">
               Here are some of my recent projects that showcase my skills in web development and problem-solving.
             </p>
           </motion.div>
@@ -381,15 +381,15 @@ export default function Portfolio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="bg-white dark:bg-black-900 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
               >
                 <div className="h-48 bg-gradient-to-br from-blue-400 via-purple-500 to-teal-400" />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{project.description}</p>
+                  <p className="text-gray-600 dark:text-white-300 mb-4 line-clamp-3">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, techIndex) => (
-                      <span key={techIndex} className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-sm">
+                      <span key={techIndex} className="px-2 py-1 bg-gray-100 dark:bg-white-800 text-gray-700 dark:text-white-300 rounded text-sm">
                         {tech}
                       </span>
                     ))}
